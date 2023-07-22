@@ -146,6 +146,9 @@ li:last-child{
   display: flex;
   overflow-wrap: break-word;
 }
+.addTask>.date{
+  text-align: end;
+}
 
 @media screen and (max-width: 690px) {
   .search, ul {
