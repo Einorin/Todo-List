@@ -150,6 +150,50 @@ li:last-child{
   text-align: end;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  border: solid black;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255,255,255,0.5);
+  /* display: none;  */
+}
+
+fieldset{
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  gap: 12px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #E8FF3A;
+  font-size: 16px;
+}
+
+fieldset input, fieldset select, fieldset button{
+  border-radius: 12px;
+  background-color: #E8FF3A;
+  font-size: 16px;
+  padding: 4px;
+}
+
+.exit{
+  align-self: flex-end;
+  text-align: end;
+  flex-shrink: 1;
+}
+
+
 @media screen and (max-width: 690px) {
   .search, ul {
     display: none;
