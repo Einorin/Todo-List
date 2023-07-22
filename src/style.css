@@ -146,3 +146,19 @@ li:last-child{
   display: flex;
   overflow-wrap: break-word;
 }
+
+@media screen and (max-width: 690px) {
+  .search, ul {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .left{
+    display: none;
+  }
+  .navbar{
+    flex: 0;
+  }
+}
