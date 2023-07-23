@@ -166,7 +166,10 @@ form{
   width: 100%;
   backdrop-filter: blur(10px);
   background-color: rgba(255,255,255,0.5);
-  /* display: none;  */
+  display: none;
+}
+#form{
+  display: flex;
 }
 
 fieldset{
@@ -176,21 +179,34 @@ fieldset{
   gap: 12px;
   padding: 40px;
   border-radius: 12px;
-  background-color: #E8FF3A;
   font-size: 16px;
 }
 
 fieldset input, fieldset select, fieldset button{
   border-radius: 12px;
-  background-color: #E8FF3A;
   font-size: 16px;
   padding: 4px;
 }
 
 .exit{
   align-self: flex-end;
-  text-align: end;
+  text-align: center;
   flex-shrink: 1;
+}
+
+div>.date {
+  text-align: end;
+}
+
+.addBtn:hover{
+  cursor: pointer;
+  background-color: green;
+  
+}
+
+.exit:hover{
+  cursor: pointer;
+  background-color: red;
 }
 
 
