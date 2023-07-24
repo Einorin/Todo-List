@@ -140,6 +140,7 @@ li:last-child{
 .addTask{
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .task-body{
@@ -149,6 +150,19 @@ li:last-child{
 .addTask>.date{
   text-align: end;
 }
+#editBtn{
+  width: 30px;
+  height: 48px;
+  background-image: url('./edit_FILL1_wght400_GRAD0_opsz48.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+#editBtn:hover{
+  cursor: pointer;
+  background-color: green;
+}
+
 
 form{
   display: flex;

@@ -25,6 +25,7 @@ function submitValue(){
         tasksAdded.taskPriority();
         tasksAdded.dateInfo();
         tasksAdded.appendToParent();
+        exitBtn();
     })
 }
 submitValue();
@@ -39,4 +40,4 @@ showForm.addEventListener('click',addTaskBtn);
 
 
 const hideForm = document.querySelector('.exit');
-hideForm.addEventListener('click', exitBtn)
+hideForm.addEventListener('click', exitBtn);

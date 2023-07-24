@@ -1,3 +1,4 @@
+import editBtnSrc from './edit_FILL1_wght400_GRAD0_opsz48.svg';
 const right = document.querySelector('.right');
 
 
@@ -9,6 +10,7 @@ class TaskAdder {
         this.date = date;
 
         this.addTask = document.createElement('div')
+        this.addTask.classList.add('addTask')
     }
     addTitle(){
         const title = document.createElement('div');
@@ -43,8 +45,11 @@ class TaskAdder {
         const date = document.createElement('div');
         date.classList.add('date');
         date.textContent = this.date;
+        const editBtn = document.createElement('div');
+        editBtn.id = 'editBtn'
 
         this.addTask.appendChild(date)
+        this.addTask.appendChild(editBtn)
     }
     appendToParent(){
         right.appendChild(this.addTask)
