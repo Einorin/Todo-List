@@ -164,7 +164,7 @@ li:last-child{
 }
 
 
-form{
+form, .editForm{
   display: flex;
   flex-direction: column;
   min-width: 200px;
@@ -182,7 +182,7 @@ form{
   background-color: rgba(255,255,255,0.5);
   display: none;
 }
-#form{
+#form, #editForm{
   display: flex;
 }
 

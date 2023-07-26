@@ -24,7 +24,6 @@ function submitValue(){
         const taskValue = task.value;
         const priorityValue = priority.value;
         const dateValue = date.value;
-
         const tasksAdded = new TaskAdder(titleValue,taskValue,priorityValue,dateValue);
         tasksAdded.addTitle();
         tasksAdded.taskBody();
@@ -32,7 +31,8 @@ function submitValue(){
         const taskTextElement = tasksAdded.taskPriority();
         if(taskTextElement.textContent === 'Urgent'){
             const titleElement = tasksAdded.addTitle();
-            addAChild(urgentTab,titleElement)
+            addAChild(urgentTab,titleElement);
+            
         }else if(taskTextElement.textContent === 'Optional'){
             const titleElement = tasksAdded.addTitle();
             addAChild(optionalTab,titleElement)
@@ -47,9 +47,43 @@ function submitValue(){
         tasksAdded.appendToParent();
         exitBtn();
         form.reset();
-    })
+        const editBtn = document.querySelector('#editBtn');
+        editBtn.addEventListener('click',editFunction)
+    },
+    )
 }
 submitValue();
+
+
+
+// This is still wrong... its not editing the text content rather it's addning a new div. fix asap
+function editFunction(){
+    const addTaskElement = document.querySelector('.addTask')
+    const secondElementClass = addTaskElement.nextElementSibling;
+    const changeTitleContent = addTaskElement.firstElementChild;
+    const editForm = document.createElement('div');
+    // editForm.classList.add('editForm');
+    // editForm.id = 'editForm'
+
+    const newTitle = document.createElement('input');
+    newTitle.type = 'text';
+    newTitle.value = changeTitleContent.textContent;
+
+    const confirmButton = document.createElement('button');
+    confirmButton.textContent = 'Confirm'
+    confirmButton.addEventListener('click',()=>{
+        changeTitleContent.textContent = newTitle.value;
+
+        addAChild(addTaskElement, changeTitleContent)
+        addAChild(addTaskElement, secondElementClass)
+    })
+    addAChild(editForm, newTitle)
+    addAChild(editForm, confirmButton)
+    addAChild(addTaskElement, editForm)
+    
+}
+    
+
 
 
 

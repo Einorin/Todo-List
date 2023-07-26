@@ -10,12 +10,13 @@ class TaskAdder {
 
         this.addTask = document.createElement('div');
         this.addTask.classList.add('addTask');
+        this.addTask.classList.add(this.title)
     }
 
     addTitle() {
         const title = document.createElement('div');
         title.textContent = this.title;
-        title.id = 'title';
+        title.classList.add('title')
         return title;
     }
 
