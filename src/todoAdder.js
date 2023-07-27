@@ -33,6 +33,14 @@ class TaskAdder {
 
         addAChild(taskBodyElement, checkbox);
         addAChild(taskBodyElement, taskInfo);
+
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+              taskBodyElement.classList.add('finished-task'); // Add a class for styling finished tasks
+            } else {
+              taskBodyElement.classList.remove('finished-task'); // Remove the class for unfinished tasks
+            }
+          });
         return taskBodyElement;
     }
 

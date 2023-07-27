@@ -28,6 +28,7 @@ function submitValue(){
         tasksAdded.addTitle();
         tasksAdded.taskBody();
         tasksAdded.taskPriority();
+        
         const taskTextElement = tasksAdded.taskPriority();
         if(taskTextElement.textContent === 'Urgent'){
             const titleElement = tasksAdded.addTitle();
@@ -47,42 +48,68 @@ function submitValue(){
         tasksAdded.appendToParent();
         exitBtn();
         form.reset();
-        const editBtn = document.querySelector('#editBtn');
-        editBtn.addEventListener('click',editFunction)
     },
     )
 }
 submitValue();
 
+const right = document.querySelector('.right');
+right.addEventListener('click', (event) => {
+  if (event.target.id === 'editBtn') {
+    editFunction(event.target);
+  }
+});
 
 
-// This is still wrong... its not editing the text content rather it's addning a new div. fix asap
-function editFunction(){
-    const addTaskElement = document.querySelector('.addTask')
-    const secondElementClass = addTaskElement.nextElementSibling;
-    const changeTitleContent = addTaskElement.firstElementChild;
-    const editForm = document.createElement('div');
-    // editForm.classList.add('editForm');
-    // editForm.id = 'editForm'
+function editFunction(editBtn) {
+  const addTaskElement = editBtn.closest('.addTask');
+  const changeTitleContent = addTaskElement.querySelector('.title');
 
-    const newTitle = document.createElement('input');
-    newTitle.type = 'text';
-    newTitle.value = changeTitleContent.textContent;
+  const editForm = document.createElement('div');
+  editForm.classList.add('editFormDiv');
+  editForm.id = 'editFormDiv';
 
-    const confirmButton = document.createElement('button');
-    confirmButton.textContent = 'Confirm'
-    confirmButton.addEventListener('click',()=>{
-        changeTitleContent.textContent = newTitle.value;
+  const titleLabel = document.createElement('label');
+  titleLabel.textContent = 'Title:';
 
-        addAChild(addTaskElement, changeTitleContent)
-        addAChild(addTaskElement, secondElementClass)
-    })
-    addAChild(editForm, newTitle)
-    addAChild(editForm, confirmButton)
-    addAChild(addTaskElement, editForm)
-    
+  const newTitle = document.createElement('input');
+  newTitle.type = 'text';
+  newTitle.value = changeTitleContent.innerText;
+
+  const taskLabel = document.createElement('label');
+  taskLabel.textContent = 'Task:';
+
+  const newTaskContent = addTaskElement.querySelector('.task-body label');
+  const newTask = document.createElement('input');
+  newTask.type = 'text';
+  newTask.value = newTaskContent.innerText;
+
+  const confirmButton = document.createElement('button');
+  confirmButton.textContent = 'Confirm';
+
+  confirmButton.addEventListener('click', () => {
+    changeTitleContent.textContent = newTitle.value;
+    newTaskContent.textContent = newTask.value;
+    addTaskElement.removeChild(editForm);
+  });
+
+  // Add elements to the editForm
+  editForm.appendChild(titleLabel);
+  editForm.appendChild(newTitle);
+  editForm.appendChild(taskLabel);
+  editForm.appendChild(newTask);
+  editForm.appendChild(confirmButton);
+
+  addAChild(addTaskElement, editForm);
 }
-    
+
+  
+  
+
+
+
+
+  
 
 
 

@@ -164,7 +164,7 @@ li:last-child{
 }
 
 
-form, .editForm{
+form{
   display: flex;
   flex-direction: column;
   min-width: 200px;
@@ -182,9 +182,40 @@ form, .editForm{
   background-color: rgba(255,255,255,0.5);
   display: none;
 }
-#form, #editForm{
+
+.editFormDiv{
+  flex-direction: column;
+  min-width: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  border: solid black;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255,255,255,0.5);
+  width: 100% !important;
+  max-width: none !important;
+}
+#form, #editFormDiv{
   display: flex;
 }
+.finished-task label {
+  text-decoration: line-through;
+  color: gray; /* Optionally, change the text color for finished tasks */
+}
+
+.addTask, .addTask div:nth-child(3){
+  background-color: rgba(200, 200, 200, 10)
+}
+/* .addTask div{
+  background-color: white;
+  border: none;
+} */
 
 fieldset{
   display: flex;
